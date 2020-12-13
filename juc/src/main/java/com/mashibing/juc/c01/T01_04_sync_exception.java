@@ -1,4 +1,4 @@
-package com.mashibing.juc;
+package com.mashibing.juc.c01;
 
 import java.util.concurrent.TimeUnit;
 
@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
  * synchronized 代码中出现异常
  *  出现程序乱入情况
  */
-public class T008_sync_exception {
+public class T01_04_sync_exception {
 
     int count = 0;
 
@@ -34,7 +34,7 @@ public class T008_sync_exception {
     }
 
     public static void main(String[] args) {
-        T008_sync_exception t = new T008_sync_exception();
+        T01_04_sync_exception t = new T01_04_sync_exception();
         // 线程1
         new Thread(()->t.m(), "threadOne").start();
 

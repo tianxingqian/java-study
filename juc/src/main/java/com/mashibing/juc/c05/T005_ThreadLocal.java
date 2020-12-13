@@ -1,4 +1,4 @@
-package com.mashibing.juc;
+package com.mashibing.juc.c05;
 
 public class T005_ThreadLocal {
 

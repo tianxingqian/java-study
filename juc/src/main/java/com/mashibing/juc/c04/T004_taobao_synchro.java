@@ -1,6 +1,5 @@
-package com.mashibing.juc;
+package com.mashibing.juc.c04;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.mashibing.juc;
+package com.mashibing.juc.c04;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;

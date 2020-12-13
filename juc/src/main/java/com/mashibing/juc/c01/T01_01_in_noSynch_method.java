@@ -1,4 +1,4 @@
-package com.mashibing.juc;
+package com.mashibing.juc.c01;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
         期间，threadTwo 是否能访问 B方法
 
  */
-public class T001_in_noSynch_method {
+public class T01_01_in_noSynch_method {
 
     public static void main(String[] args) throws InterruptedException {
 

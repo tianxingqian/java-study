@@ -1,4 +1,4 @@
-package com.mashibing.juc;
+package com.mashibing.juc.c03;
 
 
 import java.util.concurrent.atomic.AtomicLong;
@@ -8,13 +8,13 @@ import java.util.concurrent.atomic.LongAdder;
     比较 Atomxxx 与 synchronized 高效
 
  */
-public class T003_cmp_atomic_and_sync {
+public class T03_02_cmp_atomic_and_sync {
 
     static AtomicLong count = new AtomicLong(0);
     static long countSync = 0L;
     static LongAdder longAdder = new LongAdder();
 
-    final static long  cnt = 10000;
+    final static long cnt = 10000;
 
     public static void main(String[] args) throws InterruptedException {
         Thread[] threads = new Thread[10000];

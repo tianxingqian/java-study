@@ -1,4 +1,4 @@
-package com.mashibing.juc;
+package com.mashibing.juc.c01;
 
 import java.util.concurrent.TimeUnit;
 
@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
  *    A.m()是synchronized; B.m()也是synchronized
  *    在B.m()中调用super.m()
  */
-public class T007_synchro_in_parent_method {
+public class T01_03_synchro_in_parent_method {
 
     public synchronized void m() {
         System.out.println("m start");
@@ -27,7 +27,7 @@ public class T007_synchro_in_parent_method {
 
 }
 
-class TT extends T007_synchro_in_parent_method{
+class TT extends T01_03_synchro_in_parent_method {
     @Override
     public synchronized void m() {
         System.out.println("child start");
