@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
         2、线程2，实时监控元素个数，当个数到5时线程2给出提示并结束
     双重门闩
  */
-public class T004_taobao_05_CountDownLatch {
+public class T004_taobao1_05_CountDownLatch {
 
     volatile List list = new ArrayList();
 
@@ -24,7 +24,7 @@ public class T004_taobao_05_CountDownLatch {
     }
 
     public static void main(String[] args) {
-        T004_taobao_05_CountDownLatch t004 = new T004_taobao_05_CountDownLatch();
+        T004_taobao1_05_CountDownLatch t004 = new T004_taobao1_05_CountDownLatch();
 
         CountDownLatch latch1 = new CountDownLatch(1);
         CountDownLatch latch2 = new CountDownLatch(1);

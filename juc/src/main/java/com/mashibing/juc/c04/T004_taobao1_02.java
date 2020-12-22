@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
         2、线程2，实时监控元素个数，当个数到5时线程2给出提示并结束
 
  */
-public class T004_taobao_02 {
+public class T004_taobao1_02 {
 
 //    List list = Collections.synchronizedList(new LinkedList<>());
     volatile List list = new ArrayList();
@@ -24,7 +24,7 @@ public class T004_taobao_02 {
     }
 
     public static void main(String[] args) {
-        T004_taobao_02 t004 = new T004_taobao_02();
+        T004_taobao1_02 t004 = new T004_taobao1_02();
 
 
 

@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
         2、线程2，实时监控元素个数，当个数到5时线程2给出提示并结束
 
  */
-public class T004_taobao_01 {
+public class T004_taobao1_01 {
 
 //    List list = Collections.synchronizedList(new LinkedList<>());
     List list = new ArrayList();
@@ -24,7 +24,7 @@ public class T004_taobao_01 {
     }
 
     public static void main(String[] args) {
-        T004_taobao_01 t004 = new T004_taobao_01();
+        T004_taobao1_01 t004 = new T004_taobao1_01();
 
         new Thread(()->{
             for(int i=0; i< 10; i++) {

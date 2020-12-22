@@ -38,16 +38,14 @@ public class T004_taobao2_01<T> {
         return t;
     }
 
-
     public static void main(String[] args) {
         T004_taobao2_01<String> c = new T004_taobao2_01();
         // 消费者线程
         for (int i =0; i< 10; i++) {
             new Thread(()->{
                 for (int j=0; j<5; j++) System.out.println(c.get());
-            }).start();
+            }, "Consumer" + i).start();
         }
-
         // 生产者
         for (int i=0; i<2; i++) {
             new Thread(()->{
@@ -55,5 +53,4 @@ public class T004_taobao2_01<T> {
             }, "p" + i).start();
         }
     }
-
 }
