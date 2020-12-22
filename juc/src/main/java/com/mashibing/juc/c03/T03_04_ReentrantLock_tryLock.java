@@ -28,8 +28,8 @@ public class T03_04_ReentrantLock_tryLock {
     void m2() {
         boolean flag = false;
         try {
-            flag = lock.tryLock();
-            flag = lock.tryLock(15, TimeUnit.SECONDS);
+//            flag = lock.tryLock();
+            flag = lock.tryLock(5, TimeUnit.SECONDS);
             System.out.println("m2 ....., locked=" + flag);
         } catch (Exception e) {
             e.printStackTrace();
