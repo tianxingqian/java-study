@@ -13,13 +13,13 @@ public class Car {
     private double price;
     private char level;
 
-    public synchronized void drive()  {
-        System.out.println("drive ---");
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+//    public synchronized void drive()  {
+//        System.out.println("drive ---");
+//        try {
+//            TimeUnit.SECONDS.sleep(2);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 }

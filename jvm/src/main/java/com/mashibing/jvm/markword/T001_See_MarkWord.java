@@ -15,30 +15,31 @@ public class T001_See_MarkWord {
         System.out.println("------------VM details---------------");
         System.out.println(VM.current().details());
 
-        Car car = Car.builder()
-                .id(1)
-                .type("SUV")
-                .level('A')
-                .price(22.22)
-                .build();
+//        Car car = new Car();
+//        Car car = Car.builder()
+//                .id(1)
+//                .type("SUV")
+//                .level('A')
+//                .price(22.22)
+//                .build();
 
         // 普通对象，输出car对象信息
-        System.out.println(ClassLayout.parseInstance(car).toPrintable());
-        System.out.println("==============");
-        // 锁定对象car，输出car对象头部信息
-        System.out.println(Thread.currentThread().getId());
+//        System.out.println(ClassLayout.parseInstance(car).toPrintable());
+//        System.out.println("==============");
+//        // 锁定对象car，输出car对象头部信息
+//        System.out.println(Thread.currentThread().getId());
 
 
         // main锁上
-        car.drive();
-        System.out.println("main === \n" + ClassLayout.parseInstance(car).toPrintable());
-
-        new Thread(() -> {
-            System.out.println("==========inThread===========" + Thread.currentThread().getId());
-            car.drive();
-            System.out.println(ClassLayout.parseInstance(car).toPrintable());
-
-        }, "MyThread01").start();
+//        car.drive();
+//        System.out.println("main === \n" + ClassLayout.parseInstance(car).toPrintable());
+//
+//        new Thread(() -> {
+//            System.out.println("==========inThread===========" + Thread.currentThread().getId());
+//            car.drive();
+//            System.out.println(ClassLayout.parseInstance(car).toPrintable());
+//
+//        }, "MyThread01").start();
 
 
         System.out.println("--------------------------------");

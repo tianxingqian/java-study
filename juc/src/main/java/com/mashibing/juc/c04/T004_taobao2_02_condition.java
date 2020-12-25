@@ -32,10 +32,10 @@ public class T004_taobao2_02_condition<T> {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                consumerCon.signalAll();
             }
             linkedList.add(t);
             ++count;
-            consumerCon.signalAll();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
