@@ -27,5 +27,6 @@ public class T04_01_LockSupport {
         // 唤醒线程t  唤醒线程t
         LockSupport.unpark(t);
         System.out.println("唤醒了");
+        LockSupport.unpark(t);
     }
 }
