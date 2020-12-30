@@ -3,8 +3,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    
-    
+
+
+    <!--c01 第一个Servlet-->
     <servlet>
         <servlet-name>first</servlet-name>
         <servlet-class>com.mashibing.servlet.c01.FirstServlet</servlet-class>
@@ -12,6 +13,66 @@
     <servlet-mapping>
         <servlet-name>first</servlet-name>
         <url-pattern>/first</url-pattern>
+    </servlet-mapping>
+
+    <!--c01生命周期-->
+    <servlet>
+        <servlet-name>life</servlet-name>
+        <servlet-class>com.mashibing.servlet.c01.ServletLife</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>life</servlet-name>
+        <url-pattern>/life</url-pattern>
+    </servlet-mapping>
+
+    <!--c02 request response-->
+    <servlet>
+        <servlet-name>reqres</servlet-name>
+        <servlet-class>com.mashibing.servlet.c02.RequRespServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>reqres</servlet-name>
+        <url-pattern>/reqres</url-pattern>
+    </servlet-mapping>
+
+    <!--c03-->
+    <servlet>
+        <servlet-name>forwardFirst</servlet-name>
+        <servlet-class>com.mashibing.servlet.c03forward.ForwardServletFirst</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>forwardFirst</servlet-name>
+        <url-pattern>/forward1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>forwardSecond</servlet-name>
+        <servlet-class>com.mashibing.servlet.c03forward.ForwardServletSecond</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>forwardSecond</servlet-name>
+        <url-pattern>/forward2</url-pattern>
+    </servlet-mapping>
+    
+    <!--c04 cookie-->
+    <servlet>
+        <servlet-name>cookie</servlet-name>
+        <servlet-class>com.mashibing.servlet.c04cookie.CookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cookie</servlet-name>
+        <url-pattern>/cookie</url-pattern>
+    </servlet-mapping>
+    
+    <!--c05-session-->
+    <servlet>
+        <servlet-name>session</servlet-name>
+        <servlet-class>com.mashibing.servlet.c05session.SessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>session</servlet-name>
+        <url-pattern>/session</url-pattern>
     </servlet-mapping>
 
 </web-app>
