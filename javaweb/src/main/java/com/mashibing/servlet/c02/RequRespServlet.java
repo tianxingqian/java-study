@@ -34,14 +34,14 @@ public class RequRespServlet extends HttpServlet {
         System.out.println("====================");
         System.out.println(req.getHeader("User-Agent"));
         Enumeration headerNames = req.getHeaderNames();
-        for (;headerNames.hasMoreElements();) {
-            String key = (String)headerNames.nextElement();
+        for (; headerNames.hasMoreElements(); ) {
+            String key = (String) headerNames.nextElement();
             System.out.println(key + " : " + req.getHeader(key));
         }
 
         Enumeration headers = req.getHeaders("sec-ch-ua");
-        for (;headers.hasMoreElements();) {
-            String key = (String)headers.nextElement();
+        for (; headers.hasMoreElements(); ) {
+            String key = (String) headers.nextElement();
             System.out.println(key + " : " + req.getHeader(key));
         }
 
@@ -56,12 +56,18 @@ public class RequRespServlet extends HttpServlet {
 
         System.out.println("-获取多个value的参数-");
         String[] favs = req.getParameterValues("fav");
-        for (String fav : favs) {
-            System.out.println(fav);
-        }
+        if (favs != null)
+            for (String fav : favs) {
+                System.out.println(fav);
+            }
 
+        // response
+        resp.setHeader("abc", "abc");
+        resp.addHeader("tt", "aaa");
+        resp.addHeader("tt", "abc");
 
-
+        resp.getWriter().write("fffffffffffffff");
+        resp.sendError(404, "fefefe");
 
     }
 
@@ -69,6 +75,10 @@ public class RequRespServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //
         System.out.println("POST");
+        resp.setCharacterEncoding("utf-8");
+        resp.getWriter().write("<h1>tetela你好</h1>");
+
+        System.out.println(req.getParameter("name"));
     }
 
 }
