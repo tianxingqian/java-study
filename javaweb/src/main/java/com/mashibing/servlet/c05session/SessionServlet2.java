@@ -5,22 +5,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.SortedMap;
 
-public class SessionServlet extends HttpServlet {
+public class SessionServlet2 extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("session servlet get");
-        String name = (String) req.getSession().getAttribute("name");
-        if (name != null)
-            resp.getWriter().write(name);
-
+        System.out.println("SessionServlet2 get");
+        req.getSession().invalidate();
+        // session失效
+        System.out.println("session invalidate");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("session servlet");
-        req.getSession().setAttribute("name", req.getParameter("name"));
+        System.out.println("SessionServlet2 post");
+        req.getSession().setMaxInactiveInterval(3600);
 
     }
 }

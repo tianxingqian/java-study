@@ -5,6 +5,11 @@
          version="4.0">
 
 
+    <context-param>
+        <param-name>hello</param-name>
+        <param-value>heihei</param-value>
+    </context-param>
+
     <!--c01 第一个Servlet-->
     <servlet>
         <servlet-name>first</servlet-name>
@@ -54,7 +59,7 @@
         <servlet-name>forwardSecond</servlet-name>
         <url-pattern>/forward2</url-pattern>
     </servlet-mapping>
-    
+
     <!--c04 cookie-->
     <servlet>
         <servlet-name>cookie</servlet-name>
@@ -64,7 +69,7 @@
         <servlet-name>cookie</servlet-name>
         <url-pattern>/cookie</url-pattern>
     </servlet-mapping>
-    
+
     <!--c05-session-->
     <servlet>
         <servlet-name>session</servlet-name>
@@ -75,4 +80,99 @@
         <url-pattern>/session</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>invalidateSession</servlet-name>
+        <servlet-class>com.mashibing.servlet.c05session.SessionServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>invalidateSession</servlet-name>
+        <url-pattern>/invalidateSession</url-pattern>
+    </servlet-mapping>
+
+    <!-- c06 servletcontext -->
+    <servlet>
+        <servlet-name>application</servlet-name>
+        <servlet-class>com.mashibing.servlet.c06servletcontext.ServletContextServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>application</servlet-name>
+        <url-pattern>/application</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>application2</servlet-name>
+        <servlet-class>com.mashibing.servlet.c06servletcontext.ServletContextServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>application2</servlet-name>
+        <url-pattern>/application2</url-pattern>
+    </servlet-mapping>
+
+    <!-- c07 servletconfig -->
+    <servlet>
+        <servlet-name>config</servlet-name>
+        <servlet-class>com.mashibing.servlet.c07servletconfig.ServletConfigServlet</servlet-class>
+        <init-param>
+            <param-name>heheda</param-name>
+            <param-value>memeda</param-value>
+        </init-param>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>wangwu</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>config</servlet-name>
+        <url-pattern>/config</url-pattern>
+    </servlet-mapping>
+
+    <!--c08 filter-->
+    <filter>
+        <filter-name>filter</filter-name>
+        <filter-class>com.mashibing.servlet.c08filter.MyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>filter2</filter-name>
+        <filter-class>com.mashibing.servlet.c08filter.MyFilter2</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filter2</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>filterServlet1</servlet-name>
+        <servlet-class>com.mashibing.servlet.c08filter.FilterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>filterServlet1</servlet-name>
+        <url-pattern>/filter1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>filterServlet2</servlet-name>
+        <servlet-class>com.mashibing.servlet.c08filter.FilterServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>filterServlet2</servlet-name>
+        <url-pattern>/filter2.do</url-pattern>
+    </servlet-mapping>
+
+    <!--c09 listener-->
+    <servlet>
+        <servlet-name>ListenseServlet</servlet-name>
+        <servlet-class>com.mashibing.servlet.c09listener.ListenseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListenseServlet</servlet-name>
+        <url-pattern>/listense</url-pattern>
+    </servlet-mapping>
+    <listener>
+        <listener-class>com.mashibing.servlet.c09listener.MyListense</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.mashibing.servlet.c09listener.MyListense2</listener-class>
+    </listener>
 </web-app>
