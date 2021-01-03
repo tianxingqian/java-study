@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="address" class="com.mashibing.springioc.Address">
+        <property name="province" value="beijing"></property>
+        <property name="city" value="chaoyang"></property>
+        <property name="town" value="亚运村"></property>
+    </bean>
+
+<!--    <bean id="address2" class="com.mashibing.springioc.Address">-->
+<!--        <property name="province" value="beijing"></property>-->
+<!--        <property name="city" value="chaoyang"></property>-->
+<!--        <property name="town" value="安贞门"></property>-->
+<!--    </bean>-->
+
+    <bean id="person1" class="com.mashibing.springioc.Person" autowire="byName"></bean>
+    <bean id="person2" class="com.mashibing.springioc.Person" autowire="byType"></bean>
+    <bean id="person3" class="com.mashibing.springioc.Person" autowire="constructor"></bean>
+
+
+
+</beans>

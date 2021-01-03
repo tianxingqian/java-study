@@ -13,7 +13,7 @@
         <module>jmh</module>
         <module>j2se</module>
         <module>juc</module>
-        <module>spring</module>
+        <module>spring-aop</module>
         <module>javaweb</module>
     </modules>
 

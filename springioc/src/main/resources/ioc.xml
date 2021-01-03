@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+">
+
+    <!-- bean创建顺序 依赖 -->
+    <bean id="person" class="com.mashibing.springioc.XMan" depends-on="person8, xman"  parent="parent">
+        <property name="name" value="JingangWolf"/>
+        <property name="skill" value="金刚爪"></property>
+    </bean>
+
+    <bean id="person1" class="com.mashibing.springioc.Person">
+        <property name="id" value="1"></property>
+        <property name="name" value="张三"></property>
+        <property name="gender" value="男"></property>
+        <property name="age" value="18"></property>
+    </bean>
+
+    <bean id="person2" class="com.mashibing.springioc.Person">
+        <property name="id" value="2"></property>
+        <property name="name" value="李四"></property>
+        <property name="gender" value="女"></property>
+        <property name="age" value="28"></property>
+    </bean>
+
+    <!--构造方法设置属性-->
+    <!--name 必须与构造方法中参数名一样，不然抛异常-->
+    <!--参数个数也与构造方法中的一致-->
+    <bean id="person3" class="com.mashibing.springioc.Person">
+        <constructor-arg name="id" value="10"></constructor-arg>
+        <constructor-arg name="name" value="王五"></constructor-arg>
+        <constructor-arg name="gender" value="男"></constructor-arg>
+        <constructor-arg name="age" value="20"></constructor-arg>
+    </bean>
+
+    <bean id="person4" class="com.mashibing.springioc.Person">
+        <constructor-arg value="王liu" index="1"></constructor-arg>
+        <constructor-arg value="11" index="0"></constructor-arg>
+        <constructor-arg value="男"></constructor-arg>
+        <constructor-arg value="40"></constructor-arg>
+    </bean>
+
+    <bean id="person5" class="com.mashibing.springioc.Person">
+        <constructor-arg value="aa"></constructor-arg>
+        <constructor-arg value="王liu"></constructor-arg>
+        <constructor-arg value="18"></constructor-arg>
+    </bean>
+
+    <bean id="person6" class="com.mashibing.springioc.Person">
+        <constructor-arg value="10"></constructor-arg>
+        <constructor-arg value="王七"></constructor-arg>
+        <constructor-arg value="阿18"></constructor-arg>
+    </bean>
+
+    <!--使用命名空间赋值-->
+    <bean id="person7" class="com.mashibing.springioc.Person" p:id="1" p:name="Jim" p:gender="女" p:age="30"></bean>
+
+
+    <!--复杂类型赋值-->
+    <bean id="person8" class="com.mashibing.springioc.Person">
+        <property name="id" value="1"></property>
+        <property name="name" value="lili"></property>
+        <property name="gender" value="女"></property>
+        <property name="age" value="33"></property>
+        <property name="favs">
+            <array>
+                <value>tea</value>
+                <value>zhou</value>
+                <value>肉夹馍</value>
+            </array>
+        </property>
+        <property name="addressList">
+            <list>
+                <bean class="com.mashibing.springioc.Address" p:province="山东" p:city="菏泽" p:town="高韦庄"></bean>
+                <bean class="com.mashibing.springioc.Address" p:province="山东" p:city="济南" p:town="趵突泉"></bean>
+            </list>
+        </property>
+        <property name="children">
+            <set>
+                <value>大宝</value>
+                <value>二明</value>
+                <value>三踢</value>
+            </set>
+        </property>
+        <property name="score">
+            <map>
+                <entry>
+                    <key>
+                        <value>math</value>
+                    </key>
+                    <value>87</value>
+                </entry>
+                <entry key="yuwen" value="89"></entry>
+                <entry key="ziran" value-ref="person1"></entry>
+                <entry key="address">
+                    <bean class="com.mashibing.springioc.Address" p:province="beijing" p:city="chaoyang"
+                          p:town="安贞门"></bean>
+                </entry>
+                <entry key="list">
+                    <list>
+                        <bean class="com.mashibing.springioc.Address" p:province="tianjin" p:city="hexi"
+                              p:town="hexi"></bean>
+                        <bean class="com.mashibing.springioc.Address" p:province="beijing" p:city="chaoyang"
+                              p:town="yayuncun"></bean>
+                        <value>1212</value>
+                    </list>
+                </entry>
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="username">cabf</prop>
+                <prop key="pop">pop</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="address" class="com.mashibing.springioc.Address">
+
+    </bean>
+
+    <!--级联属性-->
+    <bean id="person9" class="com.mashibing.springioc.Person">
+        <property name="address" ref="address"></property>
+        <property name="address.province" value="北京"></property>
+        <property name="address.city" value="朝阳"></property>
+        <property name="address.town" value="朝阳公园"></property>
+    </bean>
+    <!-- util集合 -->
+    <util:list id="list">
+        <value>1</value>
+        <value>1</value>
+        <value>1</value>
+    </util:list>
+    <util:map id="map">
+        <entry key="abc" value="def"></entry>
+        <entry key="cdf" value="defff"></entry>
+        <entry key="dde" value="kak"></entry>
+    </util:map>
+
+    <!-- 继承 -->
+    <bean id="parent" class="com.mashibing.springioc.Person" abstract="true">
+        <property name="id" value="110"/>
+        <property name="name" value="tenae"/>
+        <property name="age" value="1500"/>
+    </bean>
+    <bean id="xman" class="com.mashibing.springioc.XMan" parent="parent">
+        <property name="name" value="JingangWolf"/>
+        <property name="skill" value="金刚爪"></property>
+    </bean>
+
+    <!-- bean作用域 是否是单例 -->
+    <bean id="person10" class="com.mashibing.springioc.Person" scope="prototype"></bean>
+    <bean id="person11" class="com.mashibing.springioc.Person" scope="singleton"></bean>
+
+    <!-- 静态工厂  scope="prototype"  -->
+    <bean id="person12" class="com.mashibing.springioc.PersonStaticFactory" factory-method="getPerson" >
+        <constructor-arg name="name" value="金刚"></constructor-arg>
+    </bean>
+
+    <!--实例工厂-->
+    <bean id="instanceFactory" class="com.mashibing.springioc.PersonInstanceFactory"></bean>
+    <bean id="person13" class="com.mashibing.springioc.Person" factory-bean="instanceFactory" factory-method="getPerson">
+        <constructor-arg name="name" value="苏东坡" ></constructor-arg>
+    </bean>
+
+    <!--实现FactoryBean 创建bean对象-->
+    <bean id="person14" class="com.mashibing.springioc.MyFactoryBean">
+    </bean>
+
+    <!-- bean的 初始化、销毁 -->
+    <bean id="person15" class="com.mashibing.springioc.Person" init-method="init" destroy-method="destroy">
+    </bean>
+
+    <!--beanpostprocessor-->
+    <bean id="myBeanPostProcessor" class="com.mashibing.springioc.MyBeanPostProcessor">
+    </bean>
+
+    <!--SpEL 表达式-->
+    <bean id="person16" class="com.mashibing.springioc.Person">
+        <!--支持任何运算符-->
+        <property name="age" value="#{12*2}"></property>
+        <!--可以引用其他bean的某个属性值-->
+        <property name="name" value="#{address.province}"></property>
+        <!--引用其他bean-->
+        <property name="address" value="#{address}"></property>
+        <!--调用静态方法-->
+        <property name="favs" value="#{T(java.util.UUID).randomUUID().toString().substring(0,4)}"></property>
+        <!--调用非静态方法-->
+        <property name="gender" value="#{address.getCity()}"></property>
+    </bean></beans>
