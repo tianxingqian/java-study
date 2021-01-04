@@ -10,57 +10,52 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 
 @Aspect
-@Component
-//@Order(2)
-public class LogAspect implements Ordered {
-
-    @Pointcut("execution(public int com.mashibing.spring.aop.service.MyCalculate.add(int, int))")
-    public void pointcut() {}
+//@Component
+//@Order(1)
+public class SecurityAspect implements Ordered {
 
     @Pointcut("execution(* *.* (..))")
     public void pointcut2() {}
 
-    @Before(value = "pointcut2()")
+    @Before("pointcut2()")
     public void start(JoinPoint joinPoint) {
-        System.out.println("@Before方法：" + joinPoint.getSignature().getName() + "，参数：" + Arrays.asList(joinPoint.getArgs()));
+        System.out.println("SecurityAspect---@Before方法：" + joinPoint.getSignature().getName() + "，参数：" + Arrays.asList(joinPoint.getArgs()));
     }
 
-    // finally
-    @After(value = "pointcut2()")
+    @After("pointcut2()")
     public void after(JoinPoint joinPoint) {
-        System.out.println("@After");
+        System.out.println("SecurityAspect---@After");
     }
 
     @AfterReturning("pointcut2()")
     public void afterReturning(JoinPoint joinPoint) {
-        System.out.println("@AfterReturning");
+        System.out.println("SecurityAspect---@AfterReturning");
     }
 
     @AfterThrowing("pointcut2()")
     public void afterThrowing(JoinPoint joinPoint) {
-        System.out.println("@AfterThrowing");
+        System.out.println("SecurityAspect---@AfterThrowing");
     }
 
     @Around("pointcut2()")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) {
-        System.out.println("@around");
+        System.out.println("SecurityAspect---@around");
         Object result = null;
         try {
-            System.out.println("环绕开始");
+            System.out.println("SecurityAspect---环绕开始");
             result = proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
-            System.out.println("环绕结束");
+            System.out.println("SecurityAspect---环绕返回");
         } catch (Throwable e) {
-            System.out.println("环绕-异常");
+            System.out.println("SecurityAspect---环绕-异常 ");
         } finally {
-            System.out.println("环绕返回通知");
+            System.out.println("SecurityAspect---环绕finally ");
         }
-
         return result;
 
     }
 
     @Override
     public int getOrder() {
-        return 2;
+        return 1;
     }
 }

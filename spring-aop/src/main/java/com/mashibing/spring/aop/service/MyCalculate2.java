@@ -7,6 +7,7 @@ public class MyCalculate2 {
     public int add(int a, int b) {
         int c = a + b;
         // int i = 1/0;
+        System.out.println("add 运算");
         return c;
     }
 }
