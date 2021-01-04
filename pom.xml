@@ -15,6 +15,7 @@
         <module>juc</module>
         <module>spring-aop</module>
         <module>javaweb</module>
+        <module>spring-aop-datasource</module>
     </modules>
 
 

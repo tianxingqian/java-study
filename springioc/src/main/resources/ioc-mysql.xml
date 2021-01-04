@@ -13,7 +13,7 @@
 ">
 
     <bean id="datasource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="url" value="jdbc:mysql://120.27.0.66:3306/tete"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/tete"></property>
         <property name="username" value="root"></property>
         <property name="password" value="1qazxsw2"></property>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
