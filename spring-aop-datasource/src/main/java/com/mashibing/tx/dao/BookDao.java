@@ -42,10 +42,9 @@ public class BookDao {
     /**
      * 修改图书价格
      * @param id
-     * @param price
      */
-    public void updatePrice(int id,int price){
-        String sql = "update book set price=? where id =?";
-        jdbcTemplate.update(sql,price,id);
+    public void updatePrice(int id){
+        String sql = "update book set price=price - 1 where id =?";
+        jdbcTemplate.update(sql,id);
     }
 }

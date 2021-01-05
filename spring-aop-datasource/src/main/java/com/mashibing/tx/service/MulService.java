@@ -11,8 +11,12 @@ public class MulService {
 
     @Transactional
     public void mulTx(){
-        bookService.checkout("zhangsan",1);
-        bookService.updatePrice(1,99);
-        // int i = 1/0;
+        try {
+            bookService.checkout("zhangsan",1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        bookService.updatePrice(1);
+        int i = 1/0;
     }
 }

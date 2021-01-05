@@ -18,6 +18,7 @@ public class BookService {
 
     /**
      * 结账：传入哪个用户买了哪本书
+     *
      * @param username
      * @param id
      */
@@ -26,25 +27,20 @@ public class BookService {
     // @Transactional(timeout = 4, noRollbackForClassName = {"java.lang.ArithmeticException"})
     // @Transactional(timeout = 4, rollbackFor = {FileNotFoundException.class})
     // @Transactional(timeout = 4, isolation = Isolation.READ_COMMITTED)
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public void checkout(String username,int id) {
+    @Transactional (propagation = Propagation.NESTED)
+    public void checkout(String username, int id) {
 
         bookDao.updateStock(id);
-        // try {
-        //     Thread.sleep(3000);
-        // } catch (InterruptedException e) {
-        //     e.printStackTrace();
-        // }
         int price = bookDao.getPrice(id);
-        bookDao.updateBalance(username,price);
+        bookDao.updateBalance(username, price);
         // int i = 1/0;
         // new FileInputStream("aaa.txt");
     }
 
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public void updatePrice(int id,int price){
-        bookDao.updatePrice(id,price);
-        int i = 1/0;
+    @Transactional (propagation = Propagation.REQUIRES_NEW)
+    public void updatePrice(int id) {
+        bookDao.updatePrice(id);
+        // int i = 1/0;
     }
 }
