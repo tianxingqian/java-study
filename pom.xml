@@ -17,6 +17,7 @@
         <module>javaweb</module>
         <module>spring-aop-datasource</module>
         <module>spring-mvc</module>
+        <module>springmvc-annotation</module>
     </modules>
 
 

@@ -1,4 +1,4 @@
-package com.mashibing.springmvc.controller;
+package com.mashibing.springmvc.page.controller;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
