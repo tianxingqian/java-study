@@ -18,6 +18,7 @@
         <module>spring-aop-datasource</module>
         <module>spring-mvc</module>
         <module>springmvc-annotation</module>
+        <module>springmvc-request</module>
     </modules>
 
 
