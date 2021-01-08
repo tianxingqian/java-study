@@ -1,4 +1,4 @@
-package com.mashibing.springmvc.reqeust.model;
+package com.mashibing.springmvc.model;
 
 public class Address {
     private String province;

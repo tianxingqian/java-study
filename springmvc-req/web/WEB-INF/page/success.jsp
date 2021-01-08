@@ -16,5 +16,13 @@
 <body>
     ok!!! <br>
     <a href="${ctx}/rest">返回</a>
+    <br>
+    request: ${requestScope.get("request")} <br>
+    session:${sessionScope.get("session")} <br>
+    msg: ${msg}
+    <hr>
+
+    request:${requestScope.username} <br>
+    session:${sessionScope.username}
 </body>
 </html>

@@ -19,6 +19,8 @@
         <module>spring-mvc</module>
         <module>springmvc-annotation</module>
         <module>springmvc-request</module>
+        <module>test</module>
+        <module>springmvc-req</module>
     </modules>
 
 

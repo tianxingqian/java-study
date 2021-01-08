@@ -1,12 +1,11 @@
-package com.mashibing.springmvc.reqeust.controller;
+package com.mashibing.springmvc.controller;
 
-import com.mashibing.springmvc.reqeust.model.User;
+import com.mashibing.springmvc.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import sun.management.Agent;
 
 @Controller
 public class RequestController {

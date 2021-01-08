@@ -1,4 +1,4 @@
-package com.mashibing.springmvc.reqeust.model;
+package com.mashibing.springmvc.model;
 
 public class User {
     private Integer id;
