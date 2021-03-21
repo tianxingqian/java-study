@@ -21,6 +21,8 @@
         <module>springmvc-request</module>
         <module>test</module>
         <module>springmvc-req</module>
+        <module>DesignPatterns</module>
+        <module>algorithm</module>
     </modules>
 
 
